@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<!--Actual css  -->
+	<link rel="stylesheet" href="{% static 'css/canvas.css' %}">
+	<title>Number Predictor</title>
+</head>
+
+<body id='body'>
+
+  <!-- Ajax Dependencies -->
+	<script src="{% static 'js/jquery.min.js' %}">
+	</script>
+	<script src="{% static 'js/popper.min.js' %}">
+	</script>
+
+  <!-- Main JS script -->
+	<script src="{% static 'js/canvas.js' %}">
+	</script>
+	<table id='main_table'>
+		<tr>
+			<td>
+				<div id="box_main_1">
+					<canvas id="canvas"></canvas>
+					<div id="box_PenEraser">
+						<form>
+							<table>
+								<tr>
+									<td>
+										<input type="radio" id="btn-pen" name="tool" value="pen" checked>
+										<label for="pen">Pen</label>
+										<br>
+									</td>
+									<td>
+										<input type="radio" id="btn-eraser" name="tool" value="eraser">
+										<label for="eraser">Eraser</label>
+										<br>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<div id="box_prediction">
+						<button type="button" id="btn-predict">Predict</button>
+						<button type="button" id="btn-clear">Clear</button>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div id="box_main_2">
+					<div id="box_values" hidden>
+						<table>
+							<tr>
+								<td>
+									<label for="prediction-textbox">Prediction Value:</label>
+									<input id="prediction-textbox" disabled="disabled" type="text" name="" value=''>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="probability-textbox">Prediction Probability:</label>
+									<input id="probability-textbox" disabled="disabled" type="text" name="" value=''>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id="user_confirm" hidden>
+						<p>Was the Prediction Correct?</p>
+						<button type="button" id="btn-correct">Yes</button>
+						<button type="button" id="btn-incorrect">No!</button>
+					</div>
+					<div id="correct_ans" hidden>
+						<h1>Hooray!!</h1>
+						<button type="button" id="btn-draw_again_1">Draw Again!</button>
+					</div>
+					<div id="incorrect_ans_que" hidden>
+						<p>Oh!! I am sorry, please give me the correct answer so that I can learn..</p>
+						<label for="select_digit">Choose a digit:</label>
+            <!-- Creating dropdown for user to select the correct answer -->
+            <select name="select_digit" id="digits_dropdown">
+							<option value="none" checked>select..</option>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+						<input type="submit" id="dropdown_submit" value="Submit">
+					</div>
+					<div id="feedback_reply" hidden>
+						<p>Thank You! I can undestand better now...
+							<p>
+								<button type="button" id="btn-draw_again_2">Draw Again!</button>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
